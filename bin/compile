@@ -7,14 +7,14 @@ indent() {
 echo "-----> Install sox"
 BUILD_DIR=$1
 VENDOR_DIR="vendor"
-DOWNLOAD_URL="https://github.com/edwang09/heroku-buildpack-sox/raw/master/sox_14.4.2.orig.tar.bz2"
+DOWNLOAD_URL="https://github.com/edwang09/heroku-buildpack-sox/raw/master/sox_14.4.1.orig.tar.gz"
 
 echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
 
 cd $BUILD_DIR
 mkdir -p $VENDOR_DIR
 cd $VENDOR_DIR
-curl -L --silent $DOWNLOAD_URL | tar xj
+curl -L --silent $DOWNLOAD_URL | tar xz
 
 echo "exporting PATH and LIBRARY_PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/sox.sh"
